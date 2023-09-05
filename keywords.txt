@@ -1,0 +1,3 @@
+ControleMotores KEYWORD1
+parado KEYWORD2
+acionar KEYWORD2
