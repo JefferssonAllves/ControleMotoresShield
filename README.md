@@ -8,6 +8,5 @@ Além disso, a biblioteca é altamente personalizável e versátil, permitindo q
 
 Simplifique seu próximo projeto robótico com a biblioteca ControleMotores de Jeffersson Alves. Agora, você pode dar vida às suas ideias de robô de forma mais rápida e eficaz do que nunca.
 
-Para obter mais informações e exemplos de uso, consulte a documentação da biblioteca em [inserir URL da documentação].
 
 ## url="https://github.com/JefferssonAllves/ControleMotores"
