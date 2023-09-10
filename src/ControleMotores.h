@@ -1,4 +1,3 @@
-#ifndef CONTROLEMOTORES_H
 #define CONTROLEMOTORES_H
 
 #include <Arduino.h>
@@ -18,4 +17,3 @@ private:
   AF_DCMotor motorDireita1;
   AF_DCMotor motorDireita2;
 };
-#endif
