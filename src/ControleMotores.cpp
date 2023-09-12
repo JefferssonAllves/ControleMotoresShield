@@ -22,31 +22,38 @@ void ControleMotores::parado()
 }
 void ControleMotores::acionar(short velocidadeEsquerda, short velocidadeDireita)
 {
-
-  if (velocidadeEsquerda >= 0)
-  {
+  if(velocidadeEsquerda >= 0){
     velocidadeEsquerda = map(velocidadeEsquerda, 0, 255, 125, 255);
+  }else{
+    velocidadeEsquerda = 255 - map(velocidadeEsquerda, -255, 0, 0, 125);
+  }
+  if(velocidadeDireita >= 0){
+    velocidadeDireita = map(velocidadeDireita, 0, 255, 125, 255);
+  }else{
+    velocidadeDireita = 255 - map(velocidadeDireita, -255, 0, 0, 125);
+  }
+
+
+  if (velocidadeEsquerda >= 125)
+  {
     motorEsquerda1.run(FORWARD);
     motorEsquerda2.run(FORWARD);
   }
   else
   {
-    velocidadeEsquerda = 255 - map(velocidadeEsquerda, -255, 0, 0, 125);
     motorEsquerda1.run(BACKWARD);
     motorEsquerda2.run(BACKWARD);
   }
   motorEsquerda1.setSpeed(constrain(velocidadeEsquerda, 0, 255));
   motorEsquerda2.setSpeed(constrain(velocidadeEsquerda, 0, 255));
 
-  if (velocidadeDireita >= 0)
+  if (velocidadeDireita >= 125)
   {
-    velocidadeDireita = map(velocidadeDireita, 0, 255, 125, 255);
     motorDireita1.run(FORWARD);
     motorDireita2.run(FORWARD);
   }
   else
   {
-    velocidadeDireita = 255 - map(velocidadeDireita, -255, 0, 0, 125);
     motorDireita1.run(BACKWARD);
     motorDireita2.run(BACKWARD);
   }
