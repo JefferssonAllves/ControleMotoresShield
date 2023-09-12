@@ -38,7 +38,7 @@ void ControleMotores::acionar(short velocidadeEsquerda, short velocidadeDireita)
   motorEsquerda1.setSpeed(constrain(velocidadeEsquerda, 0, 255));
   motorEsquerda2.setSpeed(constrain(velocidadeEsquerda, 0, 255));
 
-  if (velocidadeDireita >= 125)
+  if (velocidadeDireita >= 0)
   {
     velocidadeDireita = map(velocidadeDireita, 0, 255, 125, 255);
     motorDireita1.run(FORWARD);
@@ -53,11 +53,41 @@ void ControleMotores::acionar(short velocidadeEsquerda, short velocidadeDireita)
   motorDireita1.setSpeed(constrain(velocidadeDireita, 0, 255));
   motorDireita2.setSpeed(constrain(velocidadeDireita, 0, 255));
 }
-
 void ControleMotores::acionar(short velocidadeEsquerda, short velocidadeDireita, short time)
 {
   ControleMotores::acionar(velocidadeEsquerda, velocidadeDireita);
   delay(time);
   ControleMotores::parado();
+}
+void ControleMotores::acionarPID(short velocidadeEsquerda, short velocidadeDireita)
+{
+
+  if (velocidadeEsquerda >= 125)
+  {
+    motorEsquerda1.run(FORWARD);
+    motorEsquerda2.run(FORWARD);
+  }
+  else
+  {
+    velocidadeEsquerda = 255 - velocidadeEsquerda;
+    motorEsquerda1.run(BACKWARD);
+    motorEsquerda2.run(BACKWARD);
+  }
+  motorEsquerda1.setSpeed(constrain(velocidadeEsquerda, 0, 255));
+  motorEsquerda2.setSpeed(constrain(velocidadeEsquerda, 0, 255));
+
+  if (velocidadeDireita >= 125)
+  {
+    motorDireita1.run(FORWARD);
+    motorDireita2.run(FORWARD);
+  }
+  else
+  {
+    velocidadeDireita = 255 - velocidadeDireita;
+    motorDireita1.run(BACKWARD);
+    motorDireita2.run(BACKWARD);
+  }
+  motorDireita1.setSpeed(constrain(velocidadeDireita, 0, 255));
+  motorDireita2.setSpeed(constrain(velocidadeDireita, 0, 255));
 }
 #endif
